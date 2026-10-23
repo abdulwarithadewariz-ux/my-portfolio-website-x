@@ -8,6 +8,8 @@
   const $$ = (s, r) => Array.from((r || document).querySelectorAll(s));
   const esc = (s) => String(s == null ? "" : s).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
   const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  /* ?static=1 — instant, animation-free page (shareable, print-friendly) */
+  const STATIC = /(?:\?|&)static=1/.test(location.search);
 
   /* ---------- inline icon set ---------- */
   const ICON = {
@@ -30,13 +32,24 @@
   const ICN = { code: ICON.code, layers: ICON.layers, brain: ICON.brain, users: ICON.users, briefcase: ICON.briefcase, globe: ICON.globe };
 
   /* ================= HERO NAME ================= */
+  // "A" lands as the mark, then the rest of each word unfurls out from behind it
   const nameEl = $("#heroName");
   if (nameEl) {
     const nm = PROFILE.name;
     nameEl.innerHTML = nm
-      .split("")
-      .map((ch, i) => `<span style="--i:${i}">${ch === " " ? "&nbsp;" : esc(ch)}</span>`)
-      .join("");
+      .split(" ")
+      .map((word, w) => {
+        const lead = word.charAt(0);
+        const rest = word.slice(1).split("");
+        return (
+          `<span class="wd" style="--w:${w}">` +
+          `<span class="lead">${esc(lead)}</span>` +
+          `<span class="rest-wrap"><span class="rest">` +
+          rest.map((ch, i) => `<span style="--i:${i + 1}">${esc(ch)}</span>`).join("") +
+          `</span></span></span>`
+        );
+      })
+      .join('<span class="wd-space">&nbsp;</span>');
   }
   const av = $("#availText");
   if (av) av.textContent = PROFILE.available;
@@ -70,6 +83,42 @@
     const items = MARQUEE.concat(MARQUEE);
     mq.innerHTML = items.map((t, i) => `<span class="${i % 2 ? "od" : ""}">${i % 2 ? "✦" : esc(t)}</span>`).join("");
   }
+  // second ticker runs backwards in outline type
+  const mq2 = $("#mq2");
+  if (mq2) {
+    const rev = MARQUEE.slice().reverse();
+    const items = rev.concat(rev);
+    mq2.innerHTML = items.map((t, i) => `<span class="${i % 2 ? "od" : ""}">${i % 2 ? "◆" : esc(t)}</span>`).join("");
+  }
+
+  /* ================= HEADLINE WORD REVEAL ================= */
+  // Splits section headlines into words; the reveal is driven by the parent's .in
+  function splitWords(el) {
+    if (!el || el.dataset.split) return;
+    el.dataset.split = "1";
+    let wi = 0;
+    (function walk(node) {
+      Array.from(node.childNodes).forEach((n) => {
+        if (n.nodeType === 3) {
+          const parts = n.nodeValue.split(/(\s+)/);
+          const frag = document.createDocumentFragment();
+          parts.forEach((p) => {
+            if (!p) return;
+            if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(p)); return; }
+            const s = document.createElement("span");
+            s.className = "w";
+            s.style.setProperty("--wi", wi++);
+            s.textContent = p;
+            frag.appendChild(s);
+          });
+          if (n.parentNode) n.parentNode.replaceChild(frag, n);
+        } else if (n.nodeType === 1 && n.tagName !== "SPAN") {
+          walk(n);
+        }
+      });
+    })(el);
+  }
+  $$(".sec-head h2, .contact-lead h2").forEach(splitWords);
 
   /* ================= STATS ================= */
   // Real counts derived from the data — never arbitrary.
@@ -184,67 +233,89 @@
   /* ================= CONTACT SOCIALS ================= */
   const cSocials = $("#cSocials");
   if (cSocials) {
-    cSocials.innerHTML = CONTACTS.map(
-      (c) => `<a href="${esc(c.u)}" target="_blank" rel="noopener noreferrer" style="--sc:${esc(c.c)}" aria-label="${esc(c.n)} — ${esc(c.h)}">${ICON[c.i] || ICON.globe}${esc(c.n)}</a>`
-    ).join("");
+    cSocials.innerHTML = CONTACTS.map((c) => {
+      const offSite = !/^mailto:/i.test(c.u); // mailto must stay in this tab
+      const attrs = offSite ? ' target="_blank" rel="noopener noreferrer"' : "";
+      return `<a href="${esc(c.u)}"${attrs} style="--sc:${esc(c.c)}" aria-label="${esc(c.n)} — ${esc(c.h)}">${ICON[c.i] || ICON.globe}${esc(c.n)}</a>`;
+    }).join("");
   }
+
+  /* ================= EMAIL ================= */
+  // Every mailto: also copies the address, so it works even with no mail app set up.
+  $$('a[href^="mailto:"]').forEach((a) => {
+    a.addEventListener("click", () => {
+      const done = () => showToast("Opening your email app — I copied the address too");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(PROFILE.email).then(done, done);
+      } else done();
+    });
+  });
 
   /* ================= YEAR ================= */
   const yr = $("#yr");
   if (yr) yr.textContent = new Date().getFullYear();
 
   /* ================= SCROLL REVEAL + COUNTERS ================= */
+  const hasIO = "IntersectionObserver" in window;
   // Reveal any .rv as it enters. Threshold kept low so nothing stays hidden.
-  const revealIO = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("in");
-          revealIO.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
-  );
+  const revealIO = hasIO
+    ? new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              revealIO.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -6% 0px" }
+      )
+    : null;
   /* cascade grid children in as a row, not all at once */
   ["#statsRow", "#featGrid", "#projGrid", "#skillsGrid", "#apprGrid", "#eduGrid", "#intrGrid"].forEach((sel) => {
     const box = $(sel);
     if (!box) return;
     Array.from(box.children).forEach((c, i) => c.style.setProperty("--d", (Math.min(i, 8) * 0.07).toFixed(3) + "s"));
   });
-  $$(".rv").forEach((el) => revealIO.observe(el));
+  const rvAll = $$(".rv");
+  if (STATIC || !revealIO) rvAll.forEach((el) => el.classList.add("in"));
+  else rvAll.forEach((el) => revealIO.observe(el));
 
   // Counters: fire when the stat is anywhere near view, and always resolve.
   function countUp(el) {
     const to = parseInt(el.getAttribute("data-to"), 10) || 0;
     if (reduce) { el.textContent = to; return; }
+    el.classList.add("counting");
     const dur = 1100, t0 = performance.now();
     (function step(t) {
       const k = Math.min(1, (t - t0) / dur);
       const eased = 1 - Math.pow(1 - k, 3);
       el.textContent = Math.round(eased * to);
       if (k < 1) requestAnimationFrame(step);
-      else el.textContent = to;
+      else { el.textContent = to; el.classList.remove("counting"); }
     })(t0);
   }
   const counters = $$(".cnt");
   if (counters.length) {
-    const cIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) { countUp(e.target); cIO.unobserve(e.target); }
+    if (STATIC || !hasIO) counters.forEach((c) => countUp(c));
+    else {
+      const cIO = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { countUp(e.target); cIO.unobserve(e.target); }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      counters.forEach((c) => cIO.observe(c));
+      // Safety: if any counter is still 0 after 2.5s and is on-screen, resolve it.
+      setTimeout(() => {
+        counters.forEach((c) => {
+          const r = c.getBoundingClientRect();
+          if (c.textContent === "0" && r.top < innerHeight && r.bottom > 0) countUp(c);
         });
-      },
-      { threshold: 0.3 }
-    );
-    counters.forEach((c) => cIO.observe(c));
-    // Safety: if any counter is still 0 after 2.5s and is on-screen, resolve it.
-    setTimeout(() => {
-      counters.forEach((c) => {
-        const r = c.getBoundingClientRect();
-        if (c.textContent === "0" && r.top < innerHeight && r.bottom > 0) countUp(c);
-      });
-    }, 2500);
+      }, 2500);
+    }
   }
 
   /* ================= HEADER / SCROLL SPY / PROGRESS ================= */
@@ -252,6 +323,30 @@
   const sections = $$("main section[id]");
   const navLinks = $$('#topnav a[href^="#"], #bn a[href^="#"]');
   let ticking = false;
+
+  /* sliding pill that follows hover + the active section */
+  const topnav = $("#topnav");
+  let navInd = null, placeNav = null;
+  if (topnav && topnav.querySelector("a")) {
+    navInd = document.createElement("span");
+    navInd.className = "nav-ind";
+    navInd.setAttribute("aria-hidden", "true");
+    topnav.appendChild(navInd);
+    placeNav = (el) => {
+      if (!el || !el.offsetParent) { navInd.classList.remove("on"); return; }
+      navInd.style.width = el.offsetWidth + "px";
+      navInd.style.transform = "translateX(" + el.offsetLeft + "px)";
+      navInd.classList.add("on");
+    };
+    const activeLink = () => topnav.querySelector("a.on");
+    topnav.querySelectorAll("a").forEach((a) => {
+      a.addEventListener("mouseenter", () => placeNav(a));
+      a.addEventListener("focus", () => placeNav(a));
+    });
+    topnav.addEventListener("mouseleave", () => placeNav(activeLink()));
+    addEventListener("resize", () => placeNav(activeLink()));
+  }
+
   function onScroll() {
     const y = window.scrollY;
     if (hd) hd.classList.toggle("s", y > 30);
@@ -262,6 +357,9 @@
       if (y >= s.offsetTop - innerHeight * 0.35) cur = s.id;
     });
     navLinks.forEach((a) => a.classList.toggle("on", a.getAttribute("href") === "#" + cur));
+    if (navInd && placeNav && topnav && !topnav.matches(":hover")) {
+      placeNav(topnav.querySelector("a.on"));
+    }
     ticking = false;
   }
   addEventListener(
@@ -312,6 +410,33 @@
         requestAnimationFrame(trail);
       })();
     }
+
+    /* trailing cursor ring — an accent, the real pointer stays visible */
+    (function ringFx() {
+      const ring = document.createElement("div");
+      ring.id = "ring";
+      ring.setAttribute("aria-hidden", "true");
+      document.body.appendChild(ring);
+      let tx = -200, ty = -200, cx = -200, cy = -200, started = false;
+      addEventListener("mousemove", (e) => {
+        tx = e.clientX; ty = e.clientY;
+        if (!started) { started = true; cx = tx; cy = ty; ring.classList.add("on"); }
+      }, { passive: true });
+      addEventListener("mouseover", (e) => {
+        const t = e.target && e.target.closest ? e.target.closest("a,button,input,textarea,select,summary,.pcard,.sc-proj,.stat") : null;
+        ring.classList.toggle("hot", !!t);
+      }, { passive: true });
+      addEventListener("mousedown", () => ring.classList.add("press"));
+      addEventListener("mouseup", () => ring.classList.remove("press"));
+      document.addEventListener("mouseleave", () => ring.classList.remove("on"));
+      document.addEventListener("mouseenter", () => { if (started) ring.classList.add("on"); });
+      (function follow() {
+        cx += (tx - cx) * 0.2;
+        cy += (ty - cy) * 0.2;
+        ring.style.transform = `translate3d(${cx.toFixed(1)}px,${cy.toFixed(1)}px,0)`;
+        requestAnimationFrame(follow);
+      })();
+    })();
 
     /* per-card glow + gentle 3D tilt */
     const hot = $$(".pcard, .sc-proj");
@@ -436,18 +561,29 @@
     lifted = true;
     if (pre) pre.classList.add("gone");
     root.classList.add("ready");
+    try { sessionStorage.setItem("adz-seen", "1"); } catch (_) {}
     // let the hero showcase drift once its entrance has finished
     const sc = $(".showcase");
     if (sc && !reduce) setTimeout(() => sc.classList.add("floaty"), 2300);
   }
-  if (reduce || !pre) {
+  if (STATIC) {
+    root.classList.add("static");
+    if (pre) pre.remove();
+    lift();
+  } else if (reduce || !pre) {
     lift();
   } else {
+    /* repeat visit in the same session: same choreography, compressed */
+    let seen = false;
+    try { seen = sessionStorage.getItem("adz-seen") === "1"; } catch (_) {}
+    if (seen) pre.classList.add("quick");
+    pre.classList.add("run");
+    const t0 = performance.now();
+    const span = seen ? 520 : 2050;
     const pct = $("#pPct");
     if (pct) {
-      const t0 = performance.now(), dur = 1150;
       (function tick(t) {
-        const k = Math.min(1, (t - t0) / dur);
+        const k = Math.min(1, (t - t0) / span);
         pct.textContent = Math.round((1 - Math.pow(1 - k, 2)) * 100);
         if (k < 1) requestAnimationFrame(tick);
         else pct.textContent = "100";
@@ -456,8 +592,12 @@
     // arriving from another page: the wipe is already covering, so lift at once
     if (root.classList.contains("arriving")) setTimeout(lift, 160);
     else {
-      addEventListener("load", () => setTimeout(lift, 550));
-      setTimeout(lift, 2600); // hard fallback — never block the page
+      const minWait = seen ? 540 : 2280;
+      const settle = () =>
+        setTimeout(lift, Math.max(0, minWait - (performance.now() - t0)) + (seen ? 120 : 300));
+      if (document.readyState === "complete") settle();
+      else addEventListener("load", settle, { once: true });
+      setTimeout(lift, seen ? 1500 : 3600); // hard fallback — never block the page
     }
   }
 

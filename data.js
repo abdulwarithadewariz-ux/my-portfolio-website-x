@@ -24,7 +24,7 @@ const PROFILE = {
 
 /* Contact methods — only real, verified destinations. */
 const CONTACTS = [
-  { n: "Email", h: PROFILE.email, u: "mailto:" + PROFILE.email, i: "mail", c: "#4d8bff" },
+  { n: "Email", h: PROFILE.email, u: "mailto:" + PROFILE.email + "?subject=Hello%20Abdulwarith", i: "mail", c: "#4d8bff" },
   { n: "GitHub", h: PROFILE.githubHandle, u: PROFILE.github, i: "github", c: "#f0ede6" },
   { n: "WhatsApp", h: "Chat with me", u: PROFILE.whatsapp, i: "whatsapp", c: "#25d366" },
   { n: "Instagram", h: "@adewarizx18", u: "https://www.instagram.com/adewarizx18/", i: "instagram", c: "#e1306c" },
@@ -200,12 +200,6 @@ const MORE_WORK = [
     d: "An online store for gaming gear, PCs and accessories — product catalogue, order enquiries and a manual bank-transfer checkout with an admin dashboard.",
     tags: ["Flask", "Python", "SQLite"],
   },
-  {
-    title: "Al-Quran Nexus",
-    kind: "Content partnership",
-    d: "A Qur'an-content website project delivered as a partnership integration — surfaced inside Deenly through a dedicated `nexus` content pack.",
-    tags: ["FastAPI", "JSON content"],
-  },
 ];
 
 /* ---------------------------------------------------------------------- */
@@ -316,9 +310,11 @@ const EDUCATION = [
 ];
 
 const INTERESTS = [
+  { t: "Junior software developer roles", d: "Entry-level and junior positions where I can contribute to shipped products from day one." },
   { t: "Software engineering roles", d: "Full-stack product work where I can own features end to end." },
   { t: "Internships & practical experience", d: "Learning directly from engineers more experienced than me." },
   { t: "AI-powered applications", d: "Combining LLM APIs with real product workflows, not demos." },
+  { t: "Product engineering", d: "Owning the whole path — data model, interface, deployment — not just one layer." },
   { t: "Remote & collaborative work", d: "Comfortable shipping asynchronously with distributed teams." },
 ];
 
