@@ -7,9 +7,9 @@
    ========================================================================= */
 
 const PROFILE = {
-  name: "Abdulwaris Aderibigbe Adewariz",
-  fullName: "Abdulwaris Aderibigbe Adewariz",
-  first: "Abdulwaris",
+  name: "Abdulwarith Adewariz",
+  fullName: "Abdulwarith Adewariz",
+  first: "Abdulwarith",
   business: "Abdulwarith Adewariz Zayd",
   role: "Software Developer",
   positioning: "Software Developer · Full-Stack Development · AI-Powered Applications",

@@ -540,8 +540,8 @@
   let cvState = "unknown";
   cvLinks.forEach((a) => {
     fetch(a.href, { method: "HEAD" })
-      .then((r) => { cvState = r.ok || r.status === 405 ? "ok" : "missing"; })
-      .catch(() => { cvState = "missing"; });
+      .then((r) => { cvState = r.status === 404 || r.status === 410 ? "missing" : "ok"; })
+      .catch(() => { /* network hiccup — never block the link over it */ });
     a.addEventListener("click", (e) => {
       if (cvState === "missing") {
         e.preventDefault();
