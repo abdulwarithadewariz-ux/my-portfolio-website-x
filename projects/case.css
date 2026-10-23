@@ -1,0 +1,119 @@
+/* =========================================================================
+   Adewariz — case-study page styles
+   Shares tokens with style.css; layered on top for project pages.
+   ========================================================================= */
+
+/* project page hero */
+.cs-hero{position:relative;padding:clamp(120px,16vh,170px) 0 clamp(40px,6vh,64px);overflow:hidden}
+.cs-hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:radial-gradient(700px 380px at 78% -10%,color-mix(in srgb,var(--pa) 16%,transparent),transparent 62%)}
+.cs-back{display:inline-flex;align-items:center;gap:8px;color:var(--mut);font-size:13.5px;
+  margin-bottom:26px;transition:color .25s,gap .25s var(--ease)}
+.cs-back:hover{color:var(--ink);gap:12px}
+.cs-back svg{width:15px;height:15px}
+.cs-tags{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:22px}
+.cs-status{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:50px;
+  border:1px solid color-mix(in srgb,var(--pa) 40%,transparent);
+  background:color-mix(in srgb,var(--pa) 10%,transparent);
+  font-family:var(--m);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--pa)}
+.cs-status i{width:7px;height:7px;border-radius:50%;background:var(--pa)}
+.cs-status.st-concept i{background:var(--dim)}
+.cs-cat{font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);
+  padding:7px 14px;border:1px solid var(--line);border-radius:50px}
+.cs-hero h1{font-size:clamp(40px,8vw,86px);line-height:.98;letter-spacing:-.045em;font-weight:800;margin-bottom:14px}
+.cs-hero .cs-tag{font-size:clamp(18px,3vw,28px);color:var(--pa);font-weight:600;letter-spacing:-.02em;margin-bottom:20px}
+.cs-hero .cs-desc{color:var(--ink-2);font-size:clamp(15.5px,2vw,18px);max-width:60ch;margin-bottom:30px}
+.cs-actions{display:flex;flex-wrap:wrap;gap:12px}
+.cs-actions .btn-p{background:var(--pa);color:#08080b}
+.cs-actions .btn-p:hover{box-shadow:0 14px 34px color-mix(in srgb,var(--pa) 40%,transparent)}
+.cs-actions .btn-off{opacity:.55;pointer-events:none;cursor:not-allowed}
+
+/* cover image */
+.cs-cover{margin-top:clamp(34px,5vw,54px);border:1px solid var(--line);border-radius:24px;overflow:hidden;
+  background:var(--card);box-shadow:0 34px 90px rgba(0,0,0,.55)}
+.cs-cover img{width:100%;display:block}
+.cs-cover .cover-alt{padding:14px 18px;font-size:12px;color:var(--dim);border-top:1px solid var(--line);font-family:var(--m);letter-spacing:.04em}
+.cs-cover .cover-gen{aspect-ratio:16/8;display:grid;place-items:center;position:relative;
+  background:radial-gradient(600px 300px at 70% 20%,color-mix(in srgb,var(--pa) 20%,transparent),transparent 60%),linear-gradient(160deg,var(--card-2),var(--bg-2))}
+.cs-cover .cover-gen .cg{font-weight:800;font-size:clamp(34px,7vw,72px);letter-spacing:-.04em}
+.cs-cover .cover-gen .cg i{color:var(--pa);font-style:normal}
+.cs-cover .cover-gen small{position:absolute;bottom:14px;left:18px;font-family:var(--m);font-size:10px;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+
+/* body layout */
+.cs-body{display:grid;grid-template-columns:1fr 300px;gap:clamp(30px,5vw,64px);align-items:start;
+  padding-top:clamp(46px,7vw,76px)}
+.cs-main>section{margin-bottom:clamp(38px,5vw,58px)}
+.cs-main h2{font-size:clamp(23px,3.4vw,32px);letter-spacing:-.025em;margin-bottom:16px;max-width:22ch}
+.cs-main h2 .n{color:var(--pa);font-family:var(--m);font-size:13px;display:block;margin-bottom:8px;letter-spacing:.1em}
+.cs-main p{color:var(--ink-2);font-size:16px;margin-bottom:15px;max-width:66ch}
+.cs-main p b{color:var(--ink);font-weight:600}
+.cs-main ul.ticks{list-style:none;display:grid;gap:11px;margin:6px 0 4px}
+.cs-main ul.ticks li{display:flex;gap:11px;align-items:flex-start;color:var(--ink-2);font-size:15.3px}
+.cs-main ul.ticks li svg{width:17px;height:17px;color:var(--pa);flex:none;margin-top:4px}
+.cs-main ul.ticks li b{color:var(--ink);font-weight:600}
+
+/* feature status lists */
+.feat-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.feat-col{border:1px solid var(--line);border-radius:16px;padding:18px;background:var(--card)}
+.feat-col h4{font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.feat-col h4 i{width:7px;height:7px;border-radius:50%}
+.feat-col.working h4 i{background:#25d366}.feat-col.partial h4 i{background:#f59e0b}.feat-col.planned h4 i{background:var(--dim)}
+.feat-col ul{list-style:none;display:grid;gap:9px}
+.feat-col li{font-size:13.5px;color:var(--ink-2);line-height:1.45}
+
+/* stack chips */
+.stack-group{margin-bottom:18px}
+.stack-group .mono{color:var(--mut);display:block;margin-bottom:10px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip-t{font-family:var(--m);font-size:11px;padding:7px 13px;border-radius:50px;
+  border:1px solid var(--line);background:var(--card);color:var(--ink-2)}
+.chip-t.hi{border-color:color-mix(in srgb,var(--pa) 40%,transparent);color:var(--pa);
+  background:color-mix(in srgb,var(--pa) 8%,transparent)}
+
+/* stat strip */
+.cs-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:8px 0 4px}
+.cs-stat{border:1px solid var(--line);border-radius:14px;padding:16px;background:var(--card);text-align:center}
+.cs-stat b{display:block;font-size:clamp(22px,3.4vw,30px);letter-spacing:-.03em;color:var(--pa);line-height:1}
+.cs-stat span{display:block;margin-top:7px;font-size:11px;color:var(--mut);line-height:1.3}
+
+/* callout */
+.callout{border:1px solid color-mix(in srgb,var(--pa) 26%,transparent);border-left:3px solid var(--pa);
+  border-radius:0 14px 14px 0;padding:16px 20px;background:color-mix(in srgb,var(--pa) 5%,transparent);margin:6px 0}
+.callout p{margin:0;font-size:14.5px;color:var(--ink-2)}
+.callout .mono{color:var(--pa);display:block;margin-bottom:7px}
+
+/* sidebar */
+.cs-side{position:sticky;top:96px;display:grid;gap:16px}
+.cs-side .mini{border:1px solid var(--line);border-radius:18px;padding:20px;background:var(--card)}
+.cs-side .mini h3{font-family:var(--m);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--mut);margin-bottom:16px}
+.cs-side .fact{display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px}
+.cs-side .fact:last-child{border-bottom:0}
+.cs-side .fact span{color:var(--mut)}
+.cs-side .fact b{font-weight:600;text-align:right;max-width:60%}
+.cs-side .fact a{color:var(--pa);word-break:break-all}
+.cs-side .btn{width:100%;justify-content:center}
+
+/* next project */
+.next-proj{margin-top:20px;border-top:1px solid var(--line);padding-top:clamp(40px,6vw,60px)}
+.next-proj .mono{color:var(--mut);display:block;margin-bottom:16px}
+.next-proj a{display:flex;align-items:center;justify-content:space-between;gap:20px;
+  border:1px solid var(--line);border-radius:20px;padding:26px;background:var(--card);
+  transition:border-color .3s,transform .4s var(--ease)}
+.next-proj a:hover{border-color:var(--npa,var(--a));transform:translateY(-4px)}
+.next-proj .np-l .mono{color:var(--npa,var(--a));margin-bottom:8px}
+.next-proj .np-l h3{font-size:clamp(22px,4vw,34px);letter-spacing:-.03em}
+.next-proj .np-l p{color:var(--mut);font-size:14px;margin-top:6px;max-width:52ch}
+.next-proj .np-r{color:var(--npa,var(--a));flex:none}
+.next-proj .np-r svg{width:30px;height:30px}
+
+@media(max-width:960px){
+  .cs-body{grid-template-columns:1fr}
+  .cs-side{position:static}
+  .feat-cols{grid-template-columns:1fr}
+  .cs-stats{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:520px){
+  .cs-stats{grid-template-columns:repeat(2,1fr)}
+  .cs-actions .btn{width:100%;justify-content:center}
+}

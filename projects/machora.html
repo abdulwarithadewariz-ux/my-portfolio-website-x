@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Machora — Case Study | Abdulwarith Adewariz</title>
+<meta name="description" content="Machora is a full-stack football platform — live scores, match centres, head-to-head history, lineups and news — built with Next.js, Prisma and three football data providers. A case study by Abdulwarith Adewariz.">
+<meta name="author" content="Abdulwarith Adewariz">
+<link rel="canonical" href="https://my-portfolio-website-x.vercel.app/projects/machora.html">
+<meta name="theme-color" content="#08080b">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://my-portfolio-website-x.vercel.app/projects/machora.html">
+<meta property="og:title" content="Machora — Football, elevated.">
+<meta property="og:description" content="A full-stack football platform that stays honest about the data behind every number. Next.js, Prisma, three providers.">
+<meta property="og:image" content="https://my-portfolio-website-x.vercel.app/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="case.css">
+<style>:root{--pa:#c8f542}</style>
+<script>document.documentElement.classList.add("js");setTimeout(function(){document.documentElement.classList.add("ready")},2600);try{if(sessionStorage.getItem("adz-wipe")==="1"){document.documentElement.classList.add("arriving");sessionStorage.removeItem("adz-wipe");}}catch(e){}</script>
+</head>
+<body style="--pa:#c8f542">
+<a class="skip" href="#cs-main">Skip to content</a>
+<div id="wipe" aria-hidden="true"><span></span><span></span><span></span></div><div id="spot" aria-hidden="true"></div><div id="pre"<div id="pre" aria-hidden="true"><div class="p-in"><div class="p-name">machora<i>.</i></div><div class="p-bar"><b></b></div></div></div>
+<div id="bar" aria-hidden="true"></div>
+
+<header id="hd">
+  <a class="logo" href="../index.html" aria-label="Adewariz — home"><span class="lmk" aria-hidden="true">A</span> adewariz<i>.</i></a>
+  <nav class="top" aria-label="Primary">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a class="hire" href="../index.html#contact">Let's talk</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="../index.html#work">All work</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#skills">Skills</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<main id="cs-main">
+<!-- HERO -->
+<section class="cs-hero">
+  <div class="wrap">
+    <a class="cs-back" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to all work</a>
+    <div class="cs-tags">
+      <span class="cs-status"><i></i> Live · in active development</span>
+      <span class="cs-cat">Full-stack web application</span>
+    </div>
+    <h1>Machora</h1>
+    <p class="cs-tag">Football, elevated.</p>
+    <p class="cs-desc">A football platform that brings live scores, match centres, head-to-head history, lineups, tables and news into one fast, honest interface — and never invents a number it doesn't actually have.</p>
+    <div class="cs-actions">
+      <a class="btn btn-p" href="https://machora-fc.vercel.app" target="_blank" rel="noopener noreferrer">Visit live site
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
+      </a>
+      <a class="btn btn-g" href="#contact-cta">Work with me</a>
+    </div>
+
+    <div class="cs-cover rv">
+      <img src="../assets/img/machora-home.jpg" alt="Machora home screen showing a match timeline with upcoming Premier League and Primera Division fixtures" width="1185" height="791" loading="lazy">
+      <p class="cover-alt">Live home screen — match timeline with real fixtures via football-data.org.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BODY -->
+<div class="wrap cs-body">
+  <div class="cs-main">
+
+    <section class="rv">
+      <h2><span class="n">01 — The problem</span>Football apps bury the truth about data</h2>
+      <p>Most football apps look complete even when they aren't. When a data provider is slow, out of quota or missing a stat, they quietly show <b>0</b> — a fabricated draw, a made-up 50% possession, an empty lineup presented as confirmed. As a fan, you can't tell real information from filler.</p>
+      <p>There's also fragmentation: live scores in one app, head-to-head in another, lineups somewhere else, news somewhere else again. I wanted a single match view that is <b>fast, deep and honest</b> — and that tells you exactly where each number came from.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">02 — The solution</span>One match centre, three providers, zero fabrication</h2>
+      <p>Machora is a Next.js application that aggregates football data from <b>three providers</b> behind a single typed client. It merges them safely across different ID spaces, caches responses in memory, and — when a source fails — falls back to the next one and says so in the UI rather than inventing data.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Match-centric design.</b> Scores, timeline, stats, lineups, head-to-head and weather in one place.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Honest states.</b> Missing data shows "data source not connected" — never a fabricated 0.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Free-tier aware.</b> Caching and opt-in polling protect a 100-request/day quota.</span></li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">03 — Who it's for</span></h2>
+      <p>Football fans who want more than a scoreline — people who check fixtures across major leagues, study head-to-head records before a big match, follow predicted and confirmed lineups, and want the numbers to be trustworthy. It's also built for anyone on a budget, since it runs on free-tier infrastructure.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">04 — What's built</span></h2>
+      <div class="feat-cols">
+        <div class="feat-col working">
+          <h4><i></i>Working</h4>
+          <ul>
+            <li>Live scoreboard &amp; date navigation</li>
+            <li>Match centre: timeline, stats, lineups, H2H</li>
+            <li>Head-to-head merged across 3 sources</li>
+            <li>Predicted vs confirmed lineups + builder</li>
+            <li>League tables with computed form</li>
+            <li>Team &amp; player pages with photos</li>
+            <li>Multi-source news (BBC &amp; ESPN RSS)</li>
+            <li>Auth: credentials + Google sign-in</li>
+            <li>Following, calendar, reminders</li>
+            <li>Search across teams, players, leagues</li>
+          </ul>
+        </div>
+        <div class="feat-col partial">
+          <h4><i></i>In progress</h4>
+          <ul>
+            <li>Browser push notifications (VAPID)</li>
+            <li>Goal &amp; kickoff notification poller</li>
+            <li>TV schedules &amp; official-broadcaster links</li>
+            <li>Transfers (no fees — source has none)</li>
+            <li>Predictions with provider probabilities</li>
+          </ul>
+        </div>
+        <div class="feat-col planned">
+          <h4><i></i>Planned</h4>
+          <ul>
+            <li>Match Pulse live explainer</li>
+            <li>Player comparison lab</li>
+            <li>Shareable match cards</li>
+            <li>Low-data mode</li>
+            <li>Fan match rooms</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">05 — Technology</span></h2>
+      <div class="stack-group"><span class="mono">Frontend &amp; framework</span>
+        <div class="chips"><span class="chip-t hi">Next.js 15 (App Router)</span><span class="chip-t hi">React 19</span><span class="chip-t hi">TypeScript</span><span class="chip-t">Tailwind CSS</span><span class="chip-t">Framer Motion</span><span class="chip-t">TanStack Query</span><span class="chip-t">Zustand</span></div>
+      </div>
+      <div class="stack-group"><span class="mono">Backend &amp; data</span>
+        <div class="chips"><span class="chip-t hi">Prisma ORM</span><span class="chip-t hi">PostgreSQL (Supabase)</span><span class="chip-t">Auth.js v5</span><span class="chip-t">Zod validation</span><span class="chip-t">Web Push</span></div>
+      </div>
+      <div class="stack-group"><span class="mono">Data providers</span>
+        <div class="chips"><span class="chip-t hi">API-Football v3</span><span class="chip-t hi">football-data.org v4</span><span class="chip-t hi">TheSportsDB</span><span class="chip-t">BBC &amp; ESPN RSS</span></div>
+      </div>
+      <div class="stack-group"><span class="mono">Infrastructure</span>
+        <div class="chips"><span class="chip-t">Vercel</span><span class="chip-t">Supabase Postgres</span><span class="chip-t">GitHub Actions</span></div>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">06 — Architecture</span></h2>
+      <p>Next.js App Router with server components doing the data fetching, so <b>API keys never reach the browser</b>. Every provider call goes through a dedicated server-side client with an in-memory TTL cache and stale-if-error behaviour — a slow or failed request serves the last good response instead of breaking the page.</p>
+      <p>The database is PostgreSQL via Prisma, with a schema covering users, sessions, follows, notification preferences, push subscriptions, reminders, predictions and saved lineups. Auth.js handles credentials (with scrypt hashing) and Google OAuth behind JWT sessions. A middleware redirects non-canonical hosts so OAuth cookies behave correctly in production.</p>
+      <div class="callout">
+        <span class="mono">Design principle</span>
+        <p>Each provider uses its own ID space. Machora stores the source alongside every ID and resolves them explicitly, so a team from API-Football is never accidentally matched to a same-named team from football-data.org.</p>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">07 — Head-to-head history</span>Getting the deepest record the data allows</h2>
+      <p>Head-to-head is the feature I cared most about. Rather than defaulting to "last 5 matches", Machora <b>merges three sources</b> and lets you filter all / last 10 / last 5:</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>API-Football</b> returns the provider's served H2H set for the pairing.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>football-data.org</b> sweeps fixed past seasons (2023–2025) for finished meetings between the two clubs, respecting the free tier's limits.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>TheSportsDB</b> searches its whole archive in both directions — the only source that reaches below football-data.org's floor.</span></li>
+      </ul>
+      <p>Rows are de-duplicated by fixture and normalised by club name, then a pure computation layer tallies wins, draws and losses by season. <b>Unplayed or unscored matches are never counted as 0–0.</b> Where a provider's history is bounded, the UI says so — I don't imply the record is exhaustive when it isn't.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">08 — Challenges</span></h2>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Free-tier quota.</b> API-Football's free plan allows ~100 requests/day. I added aggressive TTL caching, stale-if-error, and made live polling and the notification poller strictly opt-in via environment variables so a deploy can't silently burn the quota.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Mismatched ID spaces.</b> Three providers, three numbering schemes. Solved with source-tagged IDs and an explicit resolution layer in the favourites API.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Edge vs Node runtime.</b> The notification poller needs Node APIs but runs alongside Edge routes. Solved with webpack stubs so the production build succeeds and the poller only starts in production.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Missing keys at deploy.</b> Rather than crash, the app reads an explicit <code>API_KEY_MISSING</code> state and renders a clear "data source not connected" message.</span></li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">09 — Results</span></h2>
+      <div class="cs-stats">
+        <div class="cs-stat"><b>3</b><span>data providers bridged</span></div>
+        <div class="cs-stat"><b>28</b><span>app routes built</span></div>
+        <div class="cs-stat"><b>24</b><span>API endpoints</span></div>
+        <div class="cs-stat"><b>12</b><span>database models</span></div>
+      </div>
+      <p style="margin-top:16px">Machora is deployed and publicly accessible. I don't publish user or usage numbers because I don't have reliable analytics to back them — the figures above are counts of real code, not vanity metrics.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">10 — What I learned</span></h2>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Honesty is a design constraint.</b> Choosing to show "unavailable" instead of 0 shaped the whole data layer — and made the product more trustworthy.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Free tiers force good engineering.</b> Strict quotas made me design caching, fallbacks and idempotent notifications properly instead of hammering an API.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Types catch integration bugs early.</b> TypeScript plus Zod meant provider shape mismatches surfaced at the boundary, not in the UI.</span></li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">11 — Next</span></h2>
+      <p>Finish browser push so goal and kickoff alerts work reliably, deepen the match centre with a live explainer, and keep widening head-to-head coverage where providers allow it. Longer term I want to add player comparison and shareable match cards — always clearly separated from what already works.</p>
+    </section>
+
+    <section class="rv" id="contact-cta">
+      <div class="callout">
+        <span class="mono">Interested in work like this?</span>
+        <p style="margin-bottom:14px">I'm open to full-stack roles, internships and collaborations — especially around data-heavy products, APIs and honest interfaces.</p>
+        <a class="btn btn-p" href="../index.html#contact" style="background:var(--pa);color:#08080b">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <!-- NEXT -->
+    <div class="next-proj rv">
+      <span class="mono">Next project</span>
+      <a href="deenly.html" style="--npa:#2fbd84">
+        <span class="np-l"><span class="mono">Islamic lifestyle · PWA</span><h3>Deenly</h3><p>Prayer times, Qur'an, adhan notifications and worship tracking in an installable web app.</p></span>
+        <span class="np-r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <aside class="cs-side rv">
+    <div class="mini">
+      <h3>Project</h3>
+      <div class="fact"><span>Status</span><b>Live · in dev</b></div>
+      <div class="fact"><span>Type</span><b>Full-stack web app</b></div>
+      <div class="fact"><span>Role</span><b>Design &amp; full-stack build</b></div>
+      <div class="fact"><span>Frontend</span><b>Next.js · React · TS</b></div>
+      <div class="fact"><span>Backend</span><b>Prisma · PostgreSQL</b></div>
+      <div class="fact"><span>Auth</span><b>Credentials + Google</b></div>
+      <div class="fact"><span>Deployed</span><b>Vercel</b></div>
+    </div>
+    <div class="mini">
+      <h3>Links</h3>
+      <div class="fact"><span>Live site</span><b><a href="https://machora-fc.vercel.app" target="_blank" rel="noopener noreferrer">machora-fc.vercel.app</a></b></div>
+      <div class="fact"><span>Source</span><b style="color:var(--mut)">Private repository</b></div>
+    </div>
+    <a class="btn btn-g" href="../index.html#contact">Contact me
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+    </a>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div class="fl"><b>Abdulwarith Adewariz</b><span> · Software developer · Kaduna &amp; Ilorin, Nigeria</span></div>
+    <nav aria-label="Footer">
+      <a href="../index.html#work">All work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://github.com/abdulwarithadewariz-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="fc"><span>© <span id="yr">2026</span> Abdulwarith Adewariz.</span></div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Deenly — Case Study | Abdulwarith Adewariz</title>
+<meta name="description" content="Deenly is an installable Islamic lifestyle web app — prayer times, adhan notifications, Qur'an reading and audio, qibla, duas and worship tracking. Built with FastAPI and a vanilla-JS PWA. A case study by Abdulwarith Adewariz.">
+<meta name="author" content="Abdulwarith Adewariz">
+<link rel="canonical" href="https://my-portfolio-website-x.vercel.app/projects/deenly.html">
+<meta name="theme-color" content="#08080b">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://my-portfolio-website-x.vercel.app/projects/deenly.html">
+<meta property="og:title" content="Deenly — Your companion on the path.">
+<meta property="og:description" content="An installable Islamic lifestyle PWA: prayer times, adhan push, Qur'an audio, qibla and worship tracking. FastAPI + vanilla JS.">
+<meta property="og:image" content="https://my-portfolio-website-x.vercel.app/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="case.css">
+<script>document.documentElement.classList.add("js");setTimeout(function(){document.documentElement.classList.add("ready")},2600);try{if(sessionStorage.getItem("adz-wipe")==="1"){document.documentElement.classList.add("arriving");sessionStorage.removeItem("adz-wipe");}}catch(e){}</script>
+</head>
+<body style="--pa:#2fbd84">
+<a class="skip" href="#cs-main">Skip to content</a>
+<div id="wipe" aria-hidden="true"><span></span><span></span><span></span></div><div id="spot" aria-hidden="true"></div><div id="pre"<div id="pre" aria-hidden="true"><div class="p-in"><div class="p-name">deenly<i>.</i></div><div class="p-bar"><b></b></div></div></div>
+<div id="bar" aria-hidden="true"></div>
+
+<header id="hd">
+  <a class="logo" href="../index.html" aria-label="Adewariz — home"><span class="lmk" aria-hidden="true">A</span> adewariz<i>.</i></a>
+  <nav class="top" aria-label="Primary">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#about">About</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a class="hire" href="../index.html#contact">Let's talk</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
+</header>
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="../index.html#work">All work</a>
+  <a href="../index.html#about">About</a>
+  <a href="../index.html#skills">Skills</a>
+  <a href="../index.html#contact">Contact</a>
+</nav>
+
+<main id="cs-main">
+<section class="cs-hero">
+  <div class="wrap">
+    <a class="cs-back" href="../index.html#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg> Back to all work</a>
+    <div class="cs-tags">
+      <span class="cs-status"><i></i> Live · in active development</span>
+      <span class="cs-cat">Progressive web app</span>
+    </div>
+    <h1>Deenly</h1>
+    <p class="cs-tag">Your companion on the path.</p>
+    <p class="cs-desc">An installable Islamic lifestyle web app that brings prayer times, adhan notifications, Qur'an reading and audio, qibla, duas, hadith and worship tracking together in one calm, offline-friendly experience.</p>
+    <div class="cs-actions">
+      <a class="btn btn-p" href="https://deenly002.vercel.app" target="_blank" rel="noopener noreferrer">Visit live site
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><path d="M15 3h6v6M10 14 21 3"/></svg>
+      </a>
+      <a class="btn btn-g" href="#contact-cta">Work with me</a>
+    </div>
+
+    <div class="cs-cover rv">
+      <img src="../assets/img/deenly-auth.jpg" alt="Deenly registration screen with Google sign-in and email form on a dark green theme" width="1191" height="791" loading="lazy">
+      <p class="cover-alt">Live registration screen — Google sign-in and email/password with payment-gated access.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap cs-body">
+  <div class="cs-main">
+
+    <section class="rv">
+      <h2><span class="n">01 — The problem</span>Daily Islamic tools are scattered and unreliable</h2>
+      <p>Muslims who want to keep track of their daily worship usually juggle several apps: one for prayer times, another for the Qur'an, another for duas, a separate qibla compass, and a separate counter for dhikr. Many are ad-heavy, don't work offline, and some send prayer notifications that simply don't arrive.</p>
+      <p>Deenly's premise is simple: bring the everyday essentials into <b>one respectful, installable app</b> that works even with a weak or absent connection — and that is honest about what it can and can't do.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">02 — The solution</span>One PWA, worship-first, offline-capable</h2>
+      <p>Deenly is a <b>FastAPI</b> backend serving a <b>vanilla-JavaScript progressive web app</b>. It's installable to the home screen, caches its shell for offline use, and computes prayer times and qibla direction from the device's location — which never leaves the browser.</p>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Prayer &amp; adhan.</b> Location-based times with in-app adhan audio and web-push notifications.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Qur'an.</b> All 114 surahs with Arabic, translation and transliteration, plus per-ayah audio from a public CDN.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Worship tools.</b> Qibla compass, tasbih counter, duas, adhkar, hadith, lessons, quizzes and the 99 Names.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Accounts &amp; progress.</b> Email/password and Google sign-in, streaks, bookmarks and worship tracking.</span></li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">03 — Who it's for</span></h2>
+      <p>Muslims who want a single, respectful app for daily worship — prayer timing, Qur'an reading and audio, remembrance and learning — particularly in regions where connectivity is intermittent and where heavy, ad-filled apps feel inappropriate for the context.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">04 — What's built</span></h2>
+      <div class="feat-cols">
+        <div class="feat-col working">
+          <h4><i></i>Working</h4>
+          <ul>
+            <li>Prayer times from device location</li>
+            <li>Qibla compass (great-circle bearing)</li>
+            <li>Qur'an: 114 surahs, 3 modes, audio</li>
+            <li>Duas, adhkar, 99 Names, hadith</li>
+            <li>Lessons &amp; quizzes</li>
+            <li>Tasbih counter &amp; streaks</li>
+            <li>JWT auth + Google sign-in</li>
+            <li>Flutterwave registration payment</li>
+            <li>Installable PWA with offline shell</li>
+            <li>Dark / light theme, multi-language</li>
+          </ul>
+        </div>
+        <div class="feat-col partial">
+          <h4><i></i>In progress</h4>
+          <ul>
+            <li>Closed-app adhan web push (VAPID)</li>
+            <li>Gapless Qur'an audio playback</li>
+            <li>Community Q&amp;A with moderation</li>
+            <li>In-app community chat</li>
+            <li>Offline audio downloads</li>
+          </ul>
+        </div>
+        <div class="feat-col planned">
+          <h4><i></i>Planned</h4>
+          <ul>
+            <li>AI-assisted answers with sources</li>
+            <li>Zakat calculator</li>
+            <li>Ramadan &amp; Hajj guides</li>
+            <li>Mosque finder improvements</li>
+            <li>Premium tier</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">05 — Technology</span></h2>
+      <div class="stack-group"><span class="mono">Backend</span>
+        <div class="chips"><span class="chip-t hi">FastAPI</span><span class="chip-t hi">Python</span><span class="chip-t hi">SQLAlchemy</span><span class="chip-t">SQLite / Postgres</span><span class="chip-t">PyJWT</span><span class="chip-t">bcrypt</span><span class="chip-t">pywebpush</span></div>
+      </div>
+      <div class="stack-group"><span class="mono">Frontend</span>
+        <div class="chips"><span class="chip-t hi">Vanilla JS SPA</span><span class="chip-t hi">PWA + Service Worker</span><span class="chip-t">Web Audio</span><span class="chip-t">Device orientation API</span></div>
+      </div>
+      <div class="stack-group"><span class="mono">Integrations</span>
+        <div class="chips"><span class="chip-t hi">AlQuran Cloud</span><span class="chip-t hi">AlAdhan</span><span class="chip-t">OpenStreetMap / Overpass</span><span class="chip-t">Flutterwave</span><span class="chip-t">Google OAuth</span></div>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">06 — Architecture</span></h2>
+      <p>A single FastAPI app serves both the JSON API and the static frontend, which keeps deployment simple and avoids CORS complexity. The internal API proxies external Islamic-data services behind a <b>cache with rate limiting</b>, so a burst of users doesn't hammer the free public APIs or trip their limits.</p>
+      <p>Auth uses <b>JWT (HS256) with bcrypt</b> hashes, and access is gated behind a one-time registration payment verified <b>server-side through Flutterwave webhooks</b> — the backend re-verifies each transaction rather than trusting redirect query parameters, which is the classic payment-integration pitfall. User coordinates stay on-device; the browser computes prayer times and qibla locally and only sends a location when the user explicitly asks for nearby mosques.</p>
+      <div class="callout">
+        <span class="mono">Privacy by design</span>
+        <p>Your location never leaves your device by default. Prayer times and the qibla bearing are calculated in the browser — the server only sees a location if you tap "find mosques near me".</p>
+      </div>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">07 — Challenges</span></h2>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Notifications that actually arrive.</b> A plain web app can't push in the background. I implemented real <b>Web Push with VAPID keys</b> and a server-side scheduler, then iterated on urgency levels and lock-screen controls so the adhan is audible and dismissible — across many versions of debugging.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Gapless Qur'an audio.</b> Playing verse-by-verse audio created audible gaps. I reworked the player to pre-fetch and cross-join adjacent ayah audio for continuous recitation, and added background/lock-screen media controls.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Payment security.</b> Early redirects trusted URL parameters. I switched to server-side webhook verification so a payment can't be faked by editing the redirect.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Offline-first limits.</b> The service worker caches the app shell but deliberately never caches API or auth routes, so private data isn't stored insecurely.</span></li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">08 — Results</span></h2>
+      <div class="cs-stats">
+        <div class="cs-stat"><b>114</b><span>surahs with audio</span></div>
+        <div class="cs-stat"><b>29</b><span>app screens</span></div>
+        <div class="cs-stat"><b>3</b><span>external APIs integrated</span></div>
+        <div class="cs-stat"><b>47</b><span>documented versions</span></div>
+      </div>
+      <p style="margin-top:16px">Deenly is live and publicly accessible. I don't publish user counts or ratings because I have no reliable analytics to support them — the figures above are counts of real features and code, not engagement claims.</p>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">09 — What I learned</span></h2>
+      <ul class="ticks">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Web notifications are genuinely hard.</b> Getting an adhan to sound when the app is closed taught me more about service workers, push urgency and platform quirks than any tutorial could.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Never trust the client with money.</b> Moving payment verification to server-side webhooks was the difference between a demo and something that could actually be trusted.</span></li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><span><b>Respect shapes design.</b> Designing for worship meant calm colours, no manipulative patterns, and privacy defaults that assume the user is in a sensitive moment.</span></li>
+      </ul>
+    </section>
+
+    <section class="rv">
+      <h2><span class="n">10 — Status &amp; next</span></h2>
+      <p>Deenly is <b>live and in active development</b>. I'm not pretending every planned feature is finished — the community Q&amp;A, chat and offline audio are works in progress, and the AI-assisted answers are planned but not yet complete. Next I want to finish the push reliability work, ship the zakat calculator, and keep refining the Qur'an reading experience.</p>
+    </section>
+
+    <section class="rv" id="contact-cta">
+      <div class="callout">
+        <span class="mono">Interested in work like this?</span>
+        <p style="margin-bottom:14px">I'm open to full-stack roles, internships and collaborations — especially around Python backends, PWAs and real-time features.</p>
+        <a class="btn btn-p" href="../index.html#contact" style="background:var(--pa);color:#08080b">Get in touch
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+        </a>
+      </div>
+    </section>
+
+    <div class="next-proj rv">
+      <span class="mono">Next project</span>
+      <a href="dopamind.html" style="--npa:#8b5cf6">
+        <span class="np-l"><span class="mono">Web app · AI</span><h3>Dopamind</h3><p>An AI-powered study studio — courses, notes, flashcards, quizzes and focus sessions.</p></span>
+        <span class="np-r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+    </div>
+  </div>
+
+  <aside class="cs-side rv">
+    <div class="mini">
+      <h3>Project</h3>
+      <div class="fact"><span>Status</span><b>Live · in dev</b></div>
+      <div class="fact"><span>Type</span><b>Progressive web app</b></div>
+      <div class="fact"><span>Role</span><b>Design &amp; full-stack build</b></div>
+      <div class="fact"><span>Backend</span><b>FastAPI · SQLAlchemy</b></div>
+      <div class="fact"><span>Frontend</span><b>Vanilla JS PWA</b></div>
+      <div class="fact"><span>Auth</span><b>JWT + Google OAuth</b></div>
+      <div class="fact"><span>Payments</span><b>Flutterwave</b></div>
+    </div>
+    <div class="mini">
+      <h3>Links</h3>
+      <div class="fact"><span>Live site</span><b><a href="https://deenly002.vercel.app" target="_blank" rel="noopener noreferrer">deenly002.vercel.app</a></b></div>
+      <div class="fact"><span>Source</span><b style="color:var(--mut)">Private repository</b></div>
+    </div>
+    <a class="btn btn-g" href="../index.html#contact">Contact me
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>
+    </a>
+  </aside>
+</div>
+
+<footer>
+  <div class="wrap foot">
+    <div class="fl"><b>Abdulwarith Adewariz</b><span> · Software developer · Kaduna &amp; Ilorin, Nigeria</span></div>
+    <nav aria-label="Footer">
+      <a href="../index.html#work">All work</a>
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://github.com/abdulwarithadewariz-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </nav>
+    <div class="fc"><span>© <span id="yr">2026</span> Abdulwarith Adewariz.</span></div>
+  </div>
+</footer>
+
+<script src="case.js"></script>
+</body>
+</html>

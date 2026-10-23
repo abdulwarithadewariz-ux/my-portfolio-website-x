@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://my-portfolio-website-x.vercel.app/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://my-portfolio-website-x.vercel.app/projects/machora.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://my-portfolio-website-x.vercel.app/projects/deenly.html</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://my-portfolio-website-x.vercel.app/projects/dopamind.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://my-portfolio-website-x.vercel.app/projects/echo-world.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://my-portfolio-website-x.vercel.app/projects/reality-lens.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://my-portfolio-website-x.vercel.app/projects/future-you.html</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+</urlset>

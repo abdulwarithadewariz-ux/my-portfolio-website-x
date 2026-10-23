@@ -3,94 +3,374 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Adewariz | Python Developer, Ilorin</title>
-<meta name="description" content="Abdulwarith Adewariz, Computer Science student in Ilorin, Nigeria. I make apps, games and websites with Python.">
-<meta name="theme-color" content="#09090b">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;800&family=JetBrains+Mono:wght@400;700&display=swap">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<title>Abdulwarith Adewariz — Software Developer, Full-Stack &amp; AI Applications</title>
+<meta name="description" content="Abdulwarith Adewariz is a software developer in Nigeria — based in Kaduna, studying in Ilorin — building full-stack web applications, football technology and AI-powered products. Creator of Machora, Deenly and Dopamind.">
+<meta name="author" content="Abdulwarith Adewariz">
+<meta name="keywords" content="Abdulwarith Adewariz, software developer Nigeria, full-stack developer, Python, FastAPI, Next.js, React, AI applications, Machora, Deenly, portfolio">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://my-portfolio-website-x.vercel.app/">
+
+<meta name="theme-color" content="#08080b">
+<meta name="color-scheme" content="dark">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://my-portfolio-website-x.vercel.app/">
+<meta property="og:title" content="Abdulwarith Adewariz — Software Developer">
+<meta property="og:description" content="Full-stack & AI-powered applications. Creator of Machora (football platform), Deenly (Islamic lifestyle PWA) and Dopamind (AI study studio).">
+<meta property="og:image" content="https://my-portfolio-website-x.vercel.app/assets/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Abdulwarith Adewariz — Software Developer portfolio preview">
+<meta property="og:site_name" content="Abdulwarith Adewariz">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Abdulwarith Adewariz — Software Developer">
+<meta name="twitter:description" content="Full-stack & AI-powered applications. Creator of Machora, Deenly and Dopamind.">
+<meta name="twitter:image" content="https://my-portfolio-website-x.vercel.app/assets/img/og.png">
+
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Abdulwarith Adewariz",
+  "alternateName": "Abdulwarith Aderibigbe Adewariz",
+  "jobTitle": "Software Developer",
+  "email": "mailto:abdulwarithadewariz@gmail.com",
+  "url": "https://my-portfolio-website-x.vercel.app/",
+  "sameAs": [
+    "https://github.com/abdulwarithadewariz-ux",
+    "https://www.instagram.com/adewarizx18/",
+    "https://www.tiktok.com/@adewarizx",
+    "https://x.com/adewarizjersey"
+  ],
+  "knowsAbout": ["Python","JavaScript","TypeScript","React","Next.js","FastAPI","PostgreSQL","Artificial Intelligence"],
+  "address": { "@type": "PostalAddress", "addressLocality": "Kaduna", "addressRegion": "Kaduna State", "addressCountry": "NG" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "Al-Hikmah University" },
+  "memberOf": { "@type": "CollegeOrUniversity", "name": "Al-Hikmah University, Ilorin" }
+}
+</script>
+
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add("js");setTimeout(function(){document.documentElement.classList.add("ready")},2600);try{if(sessionStorage.getItem("adz-wipe")==="1"){document.documentElement.classList.add("arriving");sessionStorage.removeItem("adz-wipe");}}catch(e){}</script>
 </head>
 <body>
-<div id="pre"><span>adewariz</span><b id="pct">0</b></div>
-<canvas id="fx"></canvas><div class="blob b1"></div><div class="blob b2"></div>
-<div id="bar"></div>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- entry curtain -->
+<div id="pre" aria-hidden="true"><div class="p-in">
+  <div class="p-name">adewariz<i>.</i></div>
+  <div class="p-bar"><b></b></div>
+  <div class="p-pct"><span id="pPct">0</span><em>%</em></div>
+</div></div>
+
+<!-- page-to-page wipe (internal navigation) -->
+<div id="wipe" aria-hidden="true"><span></span><span></span><span></span></div>
+
+<!-- cursor spotlight (desktop only) -->
+<div id="spot" aria-hidden="true"></div>
+
+<div id="bar" aria-hidden="true"></div>
 
 <header id="hd">
-  <a class="logo" href="#home">adewariz<i>.</i></a>
-  <nav id="dn"><a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#path">School</a><a href="#contact">Contact</a></nav>
-  <a class="hire" href="#contact"><i class="fa-brands fa-whatsapp"></i> Hire me</a>
+  <a class="logo" href="#home" aria-label="Adewariz — home">
+    <span class="lmk" aria-hidden="true">A</span> adewariz<i>.</i>
+  </a>
+  <nav class="top" id="topnav" aria-label="Primary">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#approach">Approach</a>
+    <a href="#path">Education</a>
+  </nav>
+  <div style="display:flex;gap:10px;align-items:center">
+    <a class="hire" href="#contact">Let's talk</a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span></button>
+  </div>
 </header>
 
-<main>
-<section id="home" data-g="01"><div class="in hero">
-  <p class="mono live rv"><i></i> open to projects &amp; internships</p>
-  <h1 class="rv"><b id="name" data-t="Adewariz"></b><span class="sub">I make apps, games<br>&amp; websites.</span></h1>
-  <p class="lead rv">I'm a Computer Science student at Al-Hikmah University in Ilorin and Python is what I use for most things. I'm a <span id="typed"></span></p>
-  <div class="cta rv">
-    <a class="btn" href="#work">See my work <i class="fa-solid fa-arrow-down"></i></a>
-    <a class="btn wa" href="https://wa.link/xkqug4" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp me</a>
-  </div>
-  <div class="pills rv" id="heroSocials"></div>
-</div></section>
-
-<div class="marquee"><div class="mtrack" id="mq"></div></div>
-
-<section id="about" data-g="02"><div class="in">
-  <p class="mono sn">01 / about</p>
-  <h2 class="rv">A bit <em>about me.</em></h2>
-  <div class="two">
-    <div class="rv">
-      <p>I started coding with Python and just kept going. Honestly, most of what I know I learned by building something, breaking it, then spending hours on one error until it worked.</p>
-      <p>I'm looking for internships or small jobs where I can learn from people who know more than me. I also have a business idea called <b>NEXTLEVEL TECH</b> where I want to sell gaming gear, PCs, laptops and accessories. When I'm not coding I'm playing football (defensive mid), watching Man City or gaming.</p>
-    </div>
-    <div class="stats rv"><div><b id="s1">0</b><span>projects</span></div><div><b id="s2">0</b><span>skills</span></div><div><b id="s3">0</b><span>ways to reach me</span></div></div>
-  </div>
-</div></section>
-
-<section id="work" data-g="03"><div class="in">
-  <p class="mono sn">02 / work</p>
-  <h2 class="rv">Things I've <em>made.</em></h2>
-  <div class="chips rv" id="chips"></div>
-  <div class="rail rv" id="rail"></div>
-  <p class="mono hint"><span id="rc">1 / 11</span> · swipe sideways ←→</p>
-</div></section>
-
-<section id="skills" data-g="04"><div class="in">
-  <p class="mono sn">03 / skills</p>
-  <h2 class="rv">What I <em>can do.</em></h2>
-  <div class="sgrid" id="sgrid"></div>
-</div></section>
-
-<section id="path" data-g="05"><div class="in">
-  <p class="mono sn">04 / school</p>
-  <h2 class="rv">Where I <em>studied.</em></h2>
-  <div class="steps" id="steps"></div>
-</div></section>
-
-<section id="contact" data-g="06"><div class="in">
-  <p class="mono sn">05 / contact</p>
-  <h2 class="rv">Need something <em>built?</em> Message me.</h2>
-  <a class="bigwa rv" href="https://wa.link/xkqug4" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i><span>Message me on WhatsApp<small>I reply fastest here</small></span><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-  <div class="mailbox rv"><small class="mono">or just email me</small><span id="email">abdulwarithadewariz@gmail.com</span><button id="copy">Copy</button></div>
-  <div class="tiles" id="tiles"></div>
-  <form class="wf rv" id="wf">
-    <input id="wn" placeholder="Your name or company" required>
-    <textarea id="wm" rows="3" placeholder="What do you need?" required></textarea>
-    <button class="btn wa" type="submit"><i class="fa-brands fa-whatsapp"></i> Send to my WhatsApp</button>
-  </form>
-</div></section>
-</main>
-
-<footer>© <span id="yr"></span> Abdulwarith Adewariz · Ilorin, Nigeria</footer>
-
-<nav id="bn">
-  <a href="#home"><i class="fa-solid fa-house"></i><span>Home</span></a>
-  <a href="#work"><i class="fa-solid fa-folder-open"></i><span>Work</span></a>
-  <a href="#skills"><i class="fa-solid fa-bolt"></i><span>Skills</span></a>
-  <a href="#contact"><i class="fa-solid fa-comment-dots"></i><span>Contact</span></a>
+<nav class="drawer" id="drawer" aria-label="Mobile">
+  <a href="#work">Work</a>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#approach">Approach</a>
+  <a href="#path">Education</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<div id="wipe"><i></i><i></i><i></i><i></i><i></i><p id="wl"></p></div>
+<main id="main">
+
+<!-- ================= HERO ================= -->
+<section id="home" class="hero" aria-label="Introduction">
+  <div class="wrap">
+    <div class="avail-row">
+      <span class="avail"><i aria-hidden="true"></i> <span id="availText">Open to internships, remote roles &amp; collaborations</span></span>
+      <span class="avail loc" id="locChip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Based in Kaduna · studying in Ilorin
+      </span>
+    </div>
+    <h1>
+      <span class="nm" id="heroName" data-name="Abdulwarith Adewariz"></span>
+      <span class="role">Software Developer · <b>Product Builder</b></span>
+    </h1>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="lead">I turn ambitious ideas into digital experiences. I build software across <b>web applications</b>, <b>football technology</b>, <b>Islamic lifestyle tools</b> and <b>AI-powered products</b> — combining practical engineering, thoughtful design and purposeful functionality.</p>
+        <div class="cta">
+          <a class="btn btn-p" href="#work">View my work
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-g" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="showcase rv" aria-label="Selected work preview">
+        <div class="sc-top" aria-hidden="true"><i></i><i></i><i></i><span>selected-work</span></div>
+        <div class="sc-body" id="scBody"><!-- rendered --></div>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#stats" aria-label="Scroll down">
+      <span class="sc-line" aria-hidden="true"><i></i></span>
+      <span class="sc-txt">scroll</span>
+    </a>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true"><div class="mtrack" id="mq"></div></div>
+
+<!-- ================= STATS ================= -->
+<section id="stats" aria-label="At a glance">
+  <div class="wrap">
+    <div class="stats-row" id="statsRow"><!-- rendered --></div>
+  </div>
+</section>
+
+<!-- ================= WORK ================= -->
+<section id="work" aria-label="Selected projects">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">01 / selected work</span>
+      <h2>Things I've <em>built.</em></h2>
+      <p>Two products — Machora and Deenly — are live and in active development. Dopamind is hosted and in progress, and the three concepts are marked <b>updates in progress</b>. Each card states exactly where the project stands — no inflated claims.</p>
+    </div>
+    <div class="feat" id="featGrid"><!-- rendered --></div>
+    <div class="pgrid" id="projGrid"><!-- rendered --></div>
+
+    <details class="more rv">
+      <summary>
+        <span class="mg">Also built <small>games, store &amp; integrations</small></span>
+        <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </summary>
+      <div class="more-body" id="moreBody"><!-- rendered --></div>
+    </details>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section id="about" aria-label="About me">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">02 / about</span>
+      <h2>A bit <em>about me.</em></h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-copy rv">
+        <p class="hi">I'm based in Kaduna, I study Computer Science at Al-Hikmah University in Ilorin, and I'm a software developer who learns by building real things.</p>
+        <p>I started with Python and kept going. Most of what I know came from turning an idea into an application, hitting a problem I didn't expect, and staying with it until the thing actually worked. That loop — build, break, debug, ship — is still how I learn best.</p>
+        <p>Today I build <b>full-stack products</b>: a football platform that bridges three data providers and stays honest about missing data (<b>Machora</b>), an installable Islamic lifestyle app with payments, auth and offline support (<b>Deenly</b>), and an AI study studio (<b>Dopamind</b>). I care about the whole path — modelling the data, designing the interface, integrating APIs, and deploying something people can actually open.</p>
+        <p>I'm looking for <b>internships, remote roles and collaborations</b> where I can work on real product problems alongside engineers who know more than I do. I'm equally interested in full-stack development and AI-powered applications, and I'm always learning the next thing that a project demands.</p>
+      </div>
+      <div class="about-side rv">
+        <div class="mini">
+          <span class="mono">Currently</span>
+          <ul>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Building &amp; shipping Machora and Deenly</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Studying B.Sc. Computer Science</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg> Open to internships &amp; remote work</li>
+          </ul>
+        </div>
+        <div class="mini">
+          <span class="mono">Quick facts</span>
+          <div class="fact"><span>Based in</span><b>Kaduna, Nigeria</b></div>
+          <div class="fact"><span>Studies in</span><b>Ilorin, Nigeria</b></div>
+          <div class="fact"><span>Focus</span><b>Full-stack · AI apps</b></div>
+          <div class="fact"><span>Core stack</span><b>Python · TypeScript</b></div>
+          <div class="fact"><span>Products live</span><b>Machora · Deenly</b></div>
+          <div class="fact"><span>Response time</span><b>Usually same day</b></div>
+        </div>
+        <a class="btn btn-g" href="assets/cv/abdulwarith-adewariz-cv.pdf" download style="justify-content:center">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download CV
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS ================= -->
+<section id="skills" aria-label="Technical skills">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">03 / skills</span>
+      <h2>What I <em>work with.</em></h2>
+      <p>Grouped by how I've actually used them — technologies shipped inside working projects, things I'm actively learning, and areas I've only explored. No invented percentages.</p>
+    </div>
+    <div class="skills-grid" id="skillsGrid"><!-- rendered --></div>
+    <div class="sk-legend rv">
+      <div><i style="background:#25d366"></i> Used in shipped projects</div>
+      <div><i style="background:#f59e0b"></i> Currently learning</div>
+      <div><i style="background:#8a8a95"></i> Explored experimentally</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH ================= -->
+<section id="approach" aria-label="How I approach development">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">04 / approach</span>
+      <h2>How I <em>approach development.</em></h2>
+      <p>Not a list of technologies — the actual process behind my projects, with real examples from Machora and Deenly.</p>
+    </div>
+    <div class="appr-grid" id="apprGrid"><!-- rendered --></div>
+  </div>
+</section>
+
+<!-- ================= EDUCATION ================= -->
+<section id="path" aria-label="Education">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">05 / education</span>
+      <h2>Where I've <em>studied.</em></h2>
+    </div>
+    <div class="edu-grid" id="eduGrid"><!-- rendered --></div>
+  </div>
+</section>
+
+<!-- ================= CAREER ================= -->
+<section id="career" aria-label="Career interests">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="mono">06 / opportunities</span>
+      <h2>What I'm <em>looking for.</em></h2>
+      <p>I'm open to roles and collaborations where I can build real products and keep growing as an engineer.</p>
+    </div>
+    <div class="intr-grid" id="intrGrid"><!-- rendered --></div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" aria-label="Contact">
+  <div class="wrap contact-grid">
+    <div class="contact-lead rv">
+      <span class="mono" style="color:var(--a);display:block;margin-bottom:14px">07 / contact</span>
+      <h2>Let's build <em>something.</em></h2>
+      <p style="color:var(--mut);margin-top:18px;max-width:46ch">Have a role, a project or an idea? The fastest way to reach me is email or WhatsApp — I reply quickly.</p>
+
+      <a class="big-mail" href="mailto:abdulwarithadewariz@gmail.com" id="mailCard">
+        <span class="cmk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+        <span>
+          <b>abdulwarithadewariz@gmail.com</b>
+          <small>Click to email · fastest for detailed enquiries</small>
+        </span>
+      </a>
+
+      <div class="c-socials" id="cSocials"><!-- rendered --></div>
+
+      <a class="wa-cta" href="https://wa.link/xkqug4" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="width:30px;height:30px;flex:none"><path d="M17.47 14.38c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.67.15-.2.3-.77.96-.95 1.16-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.6-.92-2.2-.24-.58-.49-.5-.67-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.48 1.7.62.71.22 1.36.19 1.87.12.57-.09 1.75-.72 2-1.4.25-.7.25-1.28.17-1.4-.07-.13-.27-.2-.57-.35ZM12.04 21.5h-.01a9.4 9.4 0 0 1-4.8-1.32l-.34-.2-3.57.94.95-3.48-.22-.36a9.38 9.38 0 0 1-1.44-5.01c0-5.18 4.22-9.4 9.42-9.4a9.35 9.35 0 0 1 6.66 2.76 9.32 9.32 0 0 1 2.75 6.65c0 5.18-4.22 9.4-9.4 9.4ZM20.5 3.49A11.8 11.8 0 0 0 12.04 0C5.5 0 .18 5.32.17 11.86c0 2.09.55 4.13 1.6 5.93L.07 24l6.35-1.66a11.85 11.85 0 0 0 5.62 1.43h.01c6.54 0 11.87-5.32 11.87-11.86 0-3.16-1.24-6.14-3.42-8.32Z"/></svg>
+        <span>Message me on WhatsApp<small>I reply fastest here</small></span>
+      </a>
+    </div>
+
+    <form class="form rv" id="cform" novalidate>
+      <h3>Send a message</h3>
+      <p>Opens your WhatsApp with the message ready to send — nothing is stored on this site.</p>
+
+      <div class="field" id="f-name">
+        <label for="i-name">Your name</label>
+        <input id="i-name" name="name" type="text" placeholder="Name or company" autocomplete="name" required>
+        <span class="msg">Please enter your name.</span>
+      </div>
+      <div class="field" id="f-email">
+        <label for="i-email">Email <span style="text-transform:none;letter-spacing:0">(optional)</span></label>
+        <input id="i-email" name="email" type="email" placeholder="you@company.com" autocomplete="email">
+        <span class="msg">That email doesn't look right.</span>
+      </div>
+      <div class="field" id="f-type">
+        <label for="i-type">Enquiry type</label>
+        <select id="i-type" name="type">
+          <option>Job / internship</option>
+          <option>Freelance project</option>
+          <option>Collaboration</option>
+          <option>Just saying hello</option>
+        </select>
+      </div>
+      <div class="field" id="f-msg">
+        <label for="i-msg">Message</label>
+        <textarea id="i-msg" name="message" placeholder="Tell me a little about what you need…" required></textarea>
+        <span class="msg">Please add a short message.</span>
+      </div>
+
+      <button class="btn btn-wa" type="submit">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        Send via WhatsApp
+      </button>
+      <p class="form-note">Validated in your browser · no data collected or stored</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="fl">
+      <span class="lmk" aria-hidden="true" style="width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(140deg,var(--a),#7d5cff);color:#fff;font-weight:800">A</span>
+      <span>
+        <b>Abdulwarith Adewariz</b><br>
+        <span>Software developer · Kaduna &amp; Ilorin, Nigeria</span>
+      </span>
+    </div>
+    <nav aria-label="Footer">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+      <a href="https://github.com/abdulwarithadewariz-ux" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="assets/cv/abdulwarith-adewariz-cv.pdf" download>CV</a>
+    </nav>
+    <div class="fc">
+      <span>© <span id="yr">2026</span> Abdulwarith Adewariz. Built with care — no templates.</span>
+      <span id="builtNote">Hand-coded HTML, CSS &amp; JavaScript</span>
+    </div>
+  </div>
+</footer>
+
+<div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
+
+<nav id="bn" aria-label="Quick nav">
+  <a href="#home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/></svg>Home</a>
+  <a href="#work"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>Work</a>
+  <a href="#skills"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m13 2-9 12h7l-2 8 9-12h-7z"/></svg>Skills</a>
+  <a href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Contact</a>
+</nav>
+
+<script src="data.js"></script>
 <script src="script.js"></script>
 </body>
 </html>
