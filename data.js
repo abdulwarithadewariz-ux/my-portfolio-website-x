@@ -7,9 +7,10 @@
    ========================================================================= */
 
 const PROFILE = {
-  name: "Abdulwarith Adewariz",
-  fullName: "Abdulwarith Aderibigbe Adewariz",
-  first: "Abdulwarith",
+  name: "Abdulwaris Aderibigbe Adewariz",
+  fullName: "Abdulwaris Aderibigbe Adewariz",
+  first: "Abdulwaris",
+  business: "Abdulwarith Adewariz Zayd",
   role: "Software Developer",
   positioning: "Software Developer · Full-Stack Development · AI-Powered Applications",
   location: "Kaduna, Nigeria",

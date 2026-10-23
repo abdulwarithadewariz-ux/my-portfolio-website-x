@@ -610,6 +610,7 @@ footer{border-top:1px solid var(--line);padding:44px 0 120px;margin-top:20px}
 .foot{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between}
 .foot .fl{display:flex;align-items:center;gap:11px}
 .foot .fl b{font-weight:700;font-size:15px}
+.foot .fl span b{font-size:inherit;font-weight:600;color:var(--ink)}
 .foot .fl span{color:var(--mut);font-size:12.5px}
 .foot nav{display:flex;flex-wrap:wrap;gap:6px}
 .foot nav a{padding:7px 12px;font-size:12.8px;color:var(--mut);border-radius:50px;transition:.25s}
@@ -762,6 +763,10 @@ html:not(.js) .sec-head::after{opacity:1;transform:none}
 @keyframes angSpin{to{--ang:360deg}}
 
 /* email card light sweep */
+.contact-lead .biz-tag{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:7px 14px;
+  border:1px solid var(--line-2);border-radius:50px;font-family:var(--m);font-size:10.5px;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.contact-lead .biz-tag b{color:var(--ink);font-weight:600;letter-spacing:.08em}
 .contact-lead .big-mail{position:relative;overflow:hidden}
 .contact-lead .big-mail::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.1) 50%,transparent 60%);
