@@ -514,7 +514,7 @@
       if (email) lines.push("", `You can reply to me at: ${email}`);
       const text = encodeURIComponent(lines.join("\n"));
       showToast("Opening WhatsApp…");
-      window.open(`https://wa.me/2349134245070?text=${text}`, "_blank", "noopener");
+      window.open(`https://wa.me/2349047455122?text=${text}`, "_blank", "noopener");
     });
     // clear error as the user types
     ["#i-name", "#i-email", "#i-msg"].forEach((sel) => {
