@@ -539,7 +539,7 @@ html.js .pcard.in .pc-img{clip-path:inset(0 0 0 0)}
 .appr p{color:var(--mut);font-size:13.8px}
 
 /* ---- education ---- */
-.edu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px}
 .edu{border:1px solid var(--line);border-radius:18px;padding:22px;background:var(--card);position:relative}
 .edu.now{border-color:rgba(77,139,255,.4);background:linear-gradient(165deg,rgba(77,139,255,.08),var(--card))}
 .edu .mono{color:var(--a);margin-bottom:12px;display:block}

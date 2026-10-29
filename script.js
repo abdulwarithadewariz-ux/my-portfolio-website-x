@@ -32,23 +32,18 @@
   const ICN = { code: ICON.code, layers: ICON.layers, brain: ICON.brain, users: ICON.users, briefcase: ICON.briefcase, globe: ICON.globe };
 
   /* ================= HERO NAME ================= */
-  // "A" lands as the mark, then the rest of each word unfurls out from behind it
+  // every letter animates in uniformly — no separate lead mark
   const nameEl = $("#heroName");
   if (nameEl) {
     const nm = PROFILE.name;
     nameEl.innerHTML = nm
       .split(" ")
-      .map((word, w) => {
-        const lead = word.charAt(0);
-        const rest = word.slice(1).split("");
-        return (
-          `<span class="wd" style="--w:${w}">` +
-          `<span class="lead">${esc(lead)}</span>` +
-          `<span class="rest-wrap"><span class="rest">` +
-          rest.map((ch, i) => `<span style="--i:${i + 1}">${esc(ch)}</span>`).join("") +
-          `</span></span></span>`
-        );
-      })
+      .map((word, w) =>
+        `<span class="wd" style="--w:${w}">` +
+        `<span class="rest-wrap"><span class="rest">` +
+        word.split("").map((ch, i) => `<span style="--i:${i}">${esc(ch)}</span>`).join("") +
+        `</span></span></span>`
+      )
       .join('<span class="wd-space">&nbsp;</span>');
   }
   const av = $("#availText");
@@ -217,7 +212,12 @@
   const eduGrid = $("#eduGrid");
   if (eduGrid) {
     eduGrid.innerHTML = EDUCATION.map(
-      (e, i) => `<div class="edu rv${i === 0 ? " now" : ""}"><span class="mono">${esc(e.stage)}</span><h3>${esc(e.school)}</h3><p>${esc(e.detail)}</p></div>`
+      (e, i) => {
+        const h3 = e.url
+          ? `<h3><a href="${esc(e.url)}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-underline-offset:4px">${esc(e.school)} ↗</a></h3>`
+          : `<h3>${esc(e.school)}</h3>`;
+        return `<div class="edu rv${i === 0 ? " now" : ""}"><span class="mono">${esc(e.stage)}</span>${h3}<p>${esc(e.detail)}</p></div>`;
+      }
     ).join("");
   }
 
