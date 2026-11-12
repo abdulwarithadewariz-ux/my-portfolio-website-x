@@ -142,7 +142,7 @@
       ? `<div class="pc-img"><span class="pc-badge ${STATUS_CLASS[p.status] || ""}"><i></i>${esc(p.statusNote)}</span><img src="${esc(p.img)}" alt="${esc(p.imgAlt)}" loading="lazy" width="1400" height="791"></div>`
       : `<div class="pc-img"><span class="pc-badge ${STATUS_CLASS[p.status] || ""}"><i></i>${esc(p.statusNote)}</span><div class="fallback"><span class="fg">${esc(p.title.split(" ")[0])}<i>.</i></span></div></div>`;
     const actions = [
-      `<a class="plink" href="${esc(p.caseRef)}">Read case study ${ICON.arrow}</a>`,
+      p.caseRef ? `<a class="plink" href="${esc(p.caseRef)}">Read case study ${ICON.arrow}</a>` : "",
       p.live ? `<a class="plink mut" href="${esc(p.live)}" target="_blank" rel="noopener noreferrer">Visit live site ${ICON.ext}</a>` : "",
       p.repo ? `<a class="plink mut" href="${esc(p.repo)}" target="_blank" rel="noopener noreferrer">${p.live ? "Source" : "View on GitHub"} ${ICON.github}</a>` : "",
     ]
