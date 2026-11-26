@@ -153,7 +153,7 @@
       ${media}
       <div class="pc-body">
         <span class="mono">${esc(p.category)}</span>
-        <h3>${esc(p.title)}</h3>
+        <h3>${p.caseRef ? esc(p.title) : (p.live ? `<a href="${esc(p.live)}" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:none">${esc(p.title)}</a>` : esc(p.title))}</h3>
         <p>${esc(p.blurb)}</p>
         <div class="pc-tags">${tags.map((t) => `<span>${esc(t)}</span>`).join("")}</div>
         <div class="pc-act">${actions}</div>
